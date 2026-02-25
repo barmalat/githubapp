@@ -1,7 +1,10 @@
 package com.example.demo.exception;
 
+import lombok.Getter;
+
+@Getter
 public class GithubException extends RuntimeException {
-    int status;
+    private final int status;
 
     public GithubException(String message, int status) {
         super(message);

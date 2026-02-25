@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(GithubException.class)
     public ResponseEntity<ErrorMessageDto> handleGithubException(GithubException e) {
         return ResponseEntity
-                .status(e.status)
-                .body(new ErrorMessageDto(e.getMessage(), e.status));
+                .status(e.getStatus())
+                .body(new ErrorMessageDto(e.getMessage(), e.getStatus()));
     }
 }
