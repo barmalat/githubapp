@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class GithubClientFallback implements GithubClient {
     @Override
     public GithubRepositoryResponse getRepository(String owner, String repositoryName) {
-        return new GithubRepositoryResponse();
+        return GithubRepositoryResponse.builder().build();
     }
 }
