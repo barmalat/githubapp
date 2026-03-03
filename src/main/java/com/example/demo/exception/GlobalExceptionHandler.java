@@ -20,4 +20,11 @@ public class GlobalExceptionHandler {
                 .status(e.getStatus())
                 .body(new ErrorMessageDto(e.getMessage(), e.getStatus()));
     }
+
+    @ExceptionHandler(LocalRepositoryException.class)
+    public ResponseEntity<ErrorMessageDto> handleLocalRepositoryException(LocalRepositoryException e) {
+        return ResponseEntity
+                .status(e.getStatus())
+                .body(new ErrorMessageDto(e.getMessage(), e.getStatus().value()));
+    }
 }

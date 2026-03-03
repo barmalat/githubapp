@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ClientConfiguration {
     @Bean
     public ErrorDecoder errorDecoder() {
-        return new Custom5xxErrorDecoder();
+        return new CustomErrorDecoder();
     }
 
     @Bean
