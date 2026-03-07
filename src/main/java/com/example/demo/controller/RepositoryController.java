@@ -1,12 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.RepositoryDto;
+import com.example.demo.model.dto.RepositoryDto;
 import com.example.demo.service.RepositoryService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/repositories")
@@ -19,5 +16,26 @@ public class RepositoryController {
             @PathVariable String owner,
             @PathVariable("repository-name") String repositoryName) {
         return repositoryService.getRepository(owner, repositoryName);
+    }
+
+    @PostMapping("/{owner}/{repository-name}")
+    public RepositoryDto saveRepository(
+            @PathVariable String owner,
+            @PathVariable("repository-name") String repositoryName) {
+        return repositoryService.saveRepository(owner, repositoryName);
+    }
+
+    @PutMapping("/{owner}/{repository-name}")
+    public RepositoryDto updateRepository(
+            @PathVariable String owner,
+            @PathVariable("repository-name") String repositoryName) {
+        return repositoryService.updateRepository(owner, repositoryName);
+    }
+
+    @DeleteMapping("/{owner}/{repository-name}")
+    public RepositoryDto deleteRepository(
+            @PathVariable String owner,
+            @PathVariable("repository-name") String repositoryName) {
+        return repositoryService.deleteRepository(owner, repositoryName);
     }
 }
